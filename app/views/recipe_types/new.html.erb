@@ -1,0 +1,14 @@
+<h1>Registro de tipo de receita</h1>
+
+<% if flash.notice %>
+  <%= flash.notice %><br>
+<%end%>
+
+<%= form_with model: @recipe_type do |f|%>
+
+  <%= f.label :name, 'Tipo de receita' %>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.submit 'Salvar' %>
+
+<%end%>

@@ -1,0 +1,53 @@
+<p>
+
+<strong>Receita: </strong>
+<%=@recipe.name%><br>
+
+<strong>Tipo: </strong>
+<%=@recipe.recipe_type.name if @recipe.recipe_type%><br>
+
+<strong>Cozinha: </strong>
+<%=@recipe.cuisine%><br>
+
+<strong>Ingredientes: </strong>
+<%=@recipe.ingredients%><br>
+
+<strong>Modo de preparo: </strong>
+<%=@recipe.cook_method%><br>
+
+<strong>Tempo de preparo: </strong>
+<%=@recipe.cook_time%><br>
+
+<strong>Status: </strong>
+<%= @recipe.status == 'published' ? 'Publicado' : 'Rascunho' %><br><br>
+
+
+<% if @recipe.draft? %>
+  <% button_message = 'Publicar' %>
+<% else %>
+  <% button_message = 'Rascunhar' %>
+<% end %>
+
+<%= button_to button_message, publish_recipe_path, {method: 'patch'} %>
+
+
+
+
+<%= link_to 'Editar', edit_recipe_path(@recipe) %><br>
+
+<!--
+<%= link_to 'Apagar', recipe_path(@recipe), method: :delete, data: { confirm: 'Quer apagar esta receita?' }  %>
+-->
+
+<%= form_for @recipe, method: :delete, data: { confirm: 'Quer apagar esta receita?' } do |f| %>
+  <%= f.submit 'Apagar' %>
+<% end %>
+
+<!--
+<%= form_for @recipe, method: :delete, data: { confirm: 'Quer apagar esta receita?' } do |f| %>
+  <%= f.button "Delete", formmethod: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+-->
+
+</p>
+<!---->

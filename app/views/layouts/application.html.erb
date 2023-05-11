@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookbook</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body>
+
+    <nav>
+      <ul>
+        <li>
+          <%= link_to 'Home', root_path %>
+        </li>
+        <li>
+          <%= link_to 'Cadastrar nova receita', new_recipe_path %>
+        </li>
+        <li>
+          <%= link_to 'Cadastrar novo tipo de receita', new_recipe_type_path %>
+        </li>
+        <li>
+          <%= link_to 'Visualizar rascunhos', draft_path %>
+        </li>
+      </ul>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>
